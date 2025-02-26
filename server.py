@@ -1,4 +1,4 @@
-rom flask import Flask, request, jsonify, Response
+from flask import Flask, request, jsonify, send_file, Response
 import yt_dlp
 import os
 
@@ -37,5 +37,5 @@ def download_video():
     except Exception as e:
         return jsonify({"success": False, "error": str(e)}), 500
 
-if name == '__main__':
-    app.run()
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
